@@ -9,6 +9,10 @@ def welcome():
     :return: Does not return anything.
     """
     # TODO: Your code here
+    title = 'Solar Record Management System'
+    print(len(title) * '-', title, len(title) * '-')
+
+welcome()
 
 
 def menu():
@@ -27,6 +31,20 @@ def menu():
     :return: None if invalid selection otherwise an integer corresponding to a valid selection
     """
     # TODO: Your code here
+    print("Please Choose:,"
+          " [1] Load Data,"
+          " [2] Process Data,"
+          " [3] Visualise Data,"
+          " [4] Save Data,"
+          " [5] Exit")
+    m = input(int())
+    if m == "1" or m == "2" or m == "3" or m == "4" or m == "4" or m == "5":
+        print("Loading")
+    else:
+        print("Error Invalid Input!")
+
+
+menu()
 
 
 def started(operation):
@@ -41,6 +59,7 @@ def started(operation):
     :return: Does not return anything
     """
     # TODO: Your code here
+    print(operation, "has started")
 
 
 def completed(operation):
