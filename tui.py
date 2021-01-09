@@ -12,6 +12,7 @@ def welcome():
     title = 'Solar Record Management System'
     print(len(title) * '-', title, len(title) * '-')
 
+
 welcome()
 
 
@@ -42,6 +43,7 @@ def menu():
         print("Loading")
     else:
         print("Error Invalid Input!")
+    return m
 
 
 menu()
@@ -59,7 +61,8 @@ def started(operation):
     :return: Does not return anything
     """
     # TODO: Your code here
-    print(operation, "has started")
+
+    print(f'{operation} "has started')
 
 
 def completed(operation):
@@ -74,6 +77,7 @@ def completed(operation):
     :return: Does not return anything
     """
     # TODO: Your code here
+    print(f'{operation} has completed')
 
 
 def error(error_msg):
@@ -88,6 +92,7 @@ def error(error_msg):
     :return: Does not return anything
     """
     # TODO: Your code here
+    print(f'Error! {error_msg}')
 
 
 def source_data_path():
