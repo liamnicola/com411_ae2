@@ -13,9 +13,6 @@ def welcome():
     print(len(title) * '-', title, len(title) * '-')
 
 
-welcome()
-
-
 def menu():
     """
     Task 2: Display a menu of options and read the user's response.
@@ -32,20 +29,17 @@ def menu():
     :return: None if invalid selection otherwise an integer corresponding to a valid selection
     """
     # TODO: Your code here
-    print("Please Choose:,"
-          " [1] Load Data,"
-          " [2] Process Data,"
-          " [3] Visualise Data,"
-          " [4] Save Data,"
+    print("Please Choose:\n"
+          " [1] Load Data\n"
+          " [2] Process Data\n"
+          " [3] Visualise Data\n"
+          " [4] Save Data\n"
           " [5] Exit")
     m = input(int())
     if m == "1" or m == "2" or m == "3" or m == "4" or m == "4" or m == "5":
         return m
     else:
         print("Error Invalid Input!")
-
-
-menu()
 
 
 def started(operation):
@@ -106,15 +100,12 @@ def source_data_path():
     :return: None if the file path does not end in 'csv' otherwise return the file path entered by the user
     """
     # TODO: Your code here
-    file = input("Please enter file path")
+    file = input("Please enter file path: ")
 
-    if file[-3:] == 'csv':
+    if file[-3:] == 'csv':          #reading last 3 letters to check file type
         return file
     else:
         print("File type is invalid")
-
-
-source_data_path()
 
 
 def process_type():
@@ -134,12 +125,12 @@ def process_type():
     :return: None if an invalid selection made otherwise an integer corresponding to a valid option
     """
     # TODO: Your code here
-    print("Please Choose:",
-          "[1] Retrieve Entity",
-          "[2] Retrieve entity details",
-          "[3] Categorise entities by type",
-          "[4] Categorise entities by gravity",
-          "[5] Summarise entities by orbit"
+    print("Please Choose:\n",
+          "[1] Retrieve Entity\n",
+          "[2] Retrieve entity details\n",
+          "[3] Categorise entities by type\n",
+          "[4] Categorise entities by gravity\n",
+          "[5] Summarise entities by orbit\n"
           )
     m2 = input(int())
 
@@ -147,9 +138,6 @@ def process_type():
         return m2
     else:
         print("Invalid Choice!")
-
-
-process_type()
 
 
 def entity_name():
@@ -162,9 +150,11 @@ def entity_name():
     :return: the name of an entity
     """
     # TODO: Your code here
-    e_name = input("Please enter entity")
+    e_name = input("Please enter entity: ")
 
     return e_name
+
+
 
 
 def entity_details():
@@ -179,6 +169,16 @@ def entity_details():
     :return: A list containing the name of an entity and a list of column indexes
     """
     # TODO: Your code here
+    name = entity_name()
+    indexes = []        #create list
+    user_input = 0      #used for while loop
+    return_list = [name]    #used for combining name with indexes
+    while user_input != -1:
+        user_input = int(input('Please enter a value, or exit through input -1 '))
+        if user_input != -1:
+            indexes.append(user_input)
+    return_list.append(indexes)
+    return return_list
 
 
 def list_entity(entity, cols=[]):
@@ -199,7 +199,7 @@ def list_entity(entity, cols=[]):
     :return: does not return anything
     """
     # TODO: Your code here
-
+    
 
 def list_entities():
     """

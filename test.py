@@ -1,3 +1,3 @@
 import tui
 
-tui.started(operation)
+tui.source_data_path()
