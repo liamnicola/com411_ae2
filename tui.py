@@ -40,10 +40,9 @@ def menu():
           " [5] Exit")
     m = input(int())
     if m == "1" or m == "2" or m == "3" or m == "4" or m == "4" or m == "5":
-        print("Loading")
+        return m
     else:
         print("Error Invalid Input!")
-    return m
 
 
 menu()
@@ -107,6 +106,15 @@ def source_data_path():
     :return: None if the file path does not end in 'csv' otherwise return the file path entered by the user
     """
     # TODO: Your code here
+    file = input("Please enter file path")
+
+    if file[-3:] == 'csv':
+        return file
+    else:
+        print("File type is invalid")
+
+
+source_data_path()
 
 
 def process_type():
@@ -126,6 +134,22 @@ def process_type():
     :return: None if an invalid selection made otherwise an integer corresponding to a valid option
     """
     # TODO: Your code here
+    print("Please Choose:",
+          "[1] Retrieve Entity",
+          "[2] Retrieve entity details",
+          "[3] Categorise entities by type",
+          "[4] Categorise entities by gravity",
+          "[5] Summarise entities by orbit"
+          )
+    m2 = input(int())
+
+    if m2 == '1' or m2 == '2' or m2 == '3' or m2 == '4' or m2 == '5':
+        return m2
+    else:
+        print("Invalid Choice!")
+
+
+process_type()
 
 
 def entity_name():
@@ -138,6 +162,9 @@ def entity_name():
     :return: the name of an entity
     """
     # TODO: Your code here
+    e_name = input("Please enter entity")
+
+    return e_name
 
 
 def entity_details():
