@@ -42,6 +42,7 @@ def menu():
         print("Error Invalid Input!")
         return None
 
+
 def started(operation):
     """
     Task 3: Display a message to indicate that an operation has started.
@@ -55,7 +56,7 @@ def started(operation):
     """
     # TODO: Your code here
 
-    print(f'{operation} "has started')
+    print(f'{operation} has started')
 
 
 def completed(operation):

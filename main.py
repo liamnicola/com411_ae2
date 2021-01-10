@@ -1,24 +1,38 @@
 # Task 17: Import the modules csv, tui and visual
 # TODO: Your code here
-import "sol_data.csv"
-with open("data/sol_data.csv") as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
-    for row in csv_reader:
-        if row[0] == entity:
-            print(row)
+import csv
+import tui
+import visual
 
 
 # Task 18: Create an empty list named 'records'.
 # This will be used to store the date read from the source data file.
 # TODO: Your code here
+records = []
+
+
+def data_load():
+    global records
+    finish = False
+    while not finish:
+        file_name = tui.source_data_path()
+        if file_name is None:
+            print()
+        else:
+            finish = True
+
+    with open("data/" + file_name) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
+        for row in csv_reader:
+            records.append(row)
 
 
 def run():
 
-
     # Task 19: Call the function welcome of the module tui.
     # This will display our welcome message when the program is executed.
     # TODO: Your code here
+    tui.welcome()
 
     while True:
         pass
@@ -26,6 +40,7 @@ def run():
         # for the different operations that can be performed on the data.
         # Assign the selected option to a suitable local variable
         # TODO: Your code here
+        menu = tui.menu()
 
         # Task 21: Check if the user selected the option for loading data.  If so, then do the following:
         # - Use the appropriate function in the module tui to display a message to indicate that the data loading
@@ -41,6 +56,12 @@ def run():
         # - Read each line from the CSV file and add it to the list 'records'. You should appropriately handle the case
         # where the file cannot be found
         # TODO: Your code here
+        if menu == 1:
+            tui.started("Loading Data")
+            data_load()
+
+            tui.completed("Loading Data")
+        break
 
         # Task 22: Check if the user selected the option for processing data.  If so, then do the following:
         # - Use the appropriate function in the module tui to display a message to indicate that the data processing
@@ -179,3 +200,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+    print(records)
