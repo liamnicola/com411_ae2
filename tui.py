@@ -35,12 +35,12 @@ def menu():
           " [3] Visualise Data\n"
           " [4] Save Data\n"
           " [5] Exit")
-    m = input(int())
-    if m == "1" or m == "2" or m == "3" or m == "4" or m == "4" or m == "5":
-        return m
+    menu_input = int(input())
+    if menu_input == 1 or menu_input == 2 or menu_input == 3 or menu_input == 4 or menu_input == 5:
+        return menu_input
     else:
         print("Error Invalid Input!")
-
+        return None
 
 def started(operation):
     """
@@ -106,6 +106,7 @@ def source_data_path():
         return file
     else:
         print("File type is invalid")
+        return None
 
 
 def process_type():
@@ -132,10 +133,10 @@ def process_type():
           "[4] Categorise entities by gravity\n",
           "[5] Summarise entities by orbit\n"
           )
-    m2 = input(int())
+    menu_input = int(input())
 
-    if m2 == '1' or m2 == '2' or m2 == '3' or m2 == '4' or m2 == '5':
-        return m2
+    if menu_input == 1 or menu_input == 2 or menu_input == 3 or menu_input == 4 or menu_input == 5:
+        return menu_input
     else:
         print("Invalid Choice!")
 
@@ -153,8 +154,6 @@ def entity_name():
     e_name = input("Please enter entity: ")
 
     return e_name
-
-
 
 
 def entity_details():
@@ -180,6 +179,7 @@ def entity_details():
     return_list.append(indexes)
     return return_list
 
+import csv
 
 def list_entity(entity, cols=[]):
     """
@@ -199,9 +199,16 @@ def list_entity(entity, cols=[]):
     :return: does not return anything
     """
     # TODO: Your code here
-    
+    new_list = []
+    if len(cols) > 0:   #checks if list is empty
+        for i in cols:  #goes through indexes
+            new_list.append(entity[i])  #adds index to new list
+        print(new_list)
+    else:
+        print(entity)       #prints list if cols is empty
 
-def list_entities():
+
+def list_entities(entities, cols=[]):
     """
     Task 11: Display each entity in entities. Only the data for the specified column indexes will be displayed.
     If no column indexes have been specified, then all the data for an entity will be displayed.
@@ -223,9 +230,16 @@ def list_entities():
     :return: Does not return anything
     """
     # TODO: Your code here
+    new_list = []
+    if len(cols) > 0:   #checks if list is empty
+        for i in cols:  #goes through indexes
+            new_list.append(entities[i])  #adds index to new list
+        print(new_list)
+    else:
+        print(entities)       #prints list if cols is empty
 
 
-def list_categories():
+def list_categories(categories):
     """
     Task 12: Display the contents of the dictionary categories.
 
@@ -238,6 +252,7 @@ def list_categories():
     :return: Does not return anything
     """
     # TODO: Your code here
+    print(categories)
 
 
 def gravity_range():
@@ -251,6 +266,11 @@ def gravity_range():
     :return: a tuple with the lower and upper limits
     """
     # TODO: Your code here
+    g1 = float(input("Whats the lower limit of gravity"))
+    g2 = float(input("Whats the higher limit of gravity"))
+    gravity = (g1, g2)
+    print(gravity)
+    return gravity
 
 
 def orbits():
@@ -265,6 +285,14 @@ def orbits():
     :return: a list of entity names
     """
     # TODO: Your code here
+    user_orbit = []
+    user_input = 1
+    while user_input != 'end':
+        user_input = input("Enter an entity name or type end to exit: ")
+        if user_input != 'end':
+            user_orbit.append(user_input)
+            print(user_orbit)
+    return user_orbit
 
 
 def visualise():
@@ -283,6 +311,18 @@ def visualise():
     :return: None if an invalid selection is made otherwise an integer corresponding to a valid option
     """
     # TODO: Your code here
+    print("Please Choose:\n"
+          " [1] Entities by type\n"
+          " [2] Entities by gravity\n"
+          " [3] Summary of orbits\n"
+          " [4] Animate gravities"
+          )
+    menu_input = int(input())
+    if menu_input == 1 or menu_input == 2 or menu_input == 3 or menu_input == 4:
+        return menu_input
+    else:
+        print("Error Invalid Input!")
+        return None
 
 
 def save():
@@ -300,3 +340,12 @@ def save():
     :return: None if an invalid selection is made otherwise an integer corresponding to a valid option
     """
     # TODO: Your code here
+    print("Please Choose:\n"
+          " [1] Export as JSON"
+          )
+    menu_input = int(input())
+    if menu_input == 1:
+        return menu_input
+    else:
+        print("Error Invalid Input!")
+        return None

@@ -1,7 +1,11 @@
 # Task 17: Import the modules csv, tui and visual
 # TODO: Your code here
-import sol_data.csv
-
+import "sol_data.csv"
+with open("data/sol_data.csv") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
+    for row in csv_reader:
+        if row[0] == entity:
+            print(row)
 
 
 # Task 18: Create an empty list named 'records'.
