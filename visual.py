@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
-
+import main
+import random as rnd
+import matplotlib.animation as animation
 
 def entities_pie(categories):
     """
@@ -11,6 +13,13 @@ def entities_pie(categories):
     :return: Does not return anything
     """
 
+    labels = "Planets", "Non-Planets"
+    sizes = [len(categories["Planets"]), len(categories["Non-Planets"])]
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, labels=labels, autopct="%1.1f%%")
+    ax1.axis("equal")
+    plt.show()
+
 
 def entities_bar(categories):
     """
@@ -21,6 +30,17 @@ def entities_bar(categories):
     :param categories: A dictionary with entities categorised into 'low', 'medium' and 'high' gravity
     :return: Does not return anything
     """
+    bar_start = [5, 10, 15]
+    width = 0.5
+    low_g = len(categories["low gravity"])
+    medium_g = len(categories["medium gravity"])
+    high_g = len(categories["high gravity"])
+    p1 = plt.bar(bar_start, [low_g, medium_g, high_g], width)
+    plt.title("Entities of Gravity")
+    plt.ylabel("Amount")
+    plt.xlabel("Type of Gravity")
+    plt.xticks(bar_start, ("Low Gravity", "Medium Gravity", "High Gravity"))
+    plt.show()
 
 
 def orbits(summary):

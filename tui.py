@@ -35,11 +35,10 @@ def menu():
           " [3] Visualise Data\n"
           " [4] Save Data\n"
           " [5] Exit")
-    menu_input = int(input())
-    if menu_input == 1 or menu_input == 2 or menu_input == 3 or menu_input == 4 or menu_input == 5:
-        return menu_input
+    menu_input1 = int(input())
+    if menu_input1 == 1 or menu_input1 == 2 or menu_input1 == 3 or menu_input1 == 4 or menu_input1 == 5:
+        return menu_input1
     else:
-        print("Error Invalid Input!")
         return None
 
 
@@ -132,12 +131,11 @@ def process_type():
           "[2] Retrieve entity details\n",
           "[3] Categorise entities by type\n",
           "[4] Categorise entities by gravity\n",
-          "[5] Summarise entities by orbit\n"
-          )
-    menu_input = int(input())
+          "[5] Summarise entities by orbit\n")
+    menu_input2 = int(input())
 
-    if menu_input == 1 or menu_input == 2 or menu_input == 3 or menu_input == 4 or menu_input == 5:
-        return menu_input
+    if menu_input2 == 1 or menu_input2 == 2 or menu_input2 == 3 or menu_input2 == 4 or menu_input2 == 5:
+        return menu_input2
     else:
         print("Invalid Choice!")
 
@@ -180,7 +178,6 @@ def entity_details():
     return_list.append(indexes)
     return return_list
 
-import csv
 
 def list_entity(entity, cols=[]):
     """
@@ -201,6 +198,7 @@ def list_entity(entity, cols=[]):
     """
     # TODO: Your code here
     new_list = []
+    entity = entity
     if len(cols) > 0:   #checks if list is empty
         for i in cols:  #goes through indexes
             new_list.append(entity[i])  #adds index to new list
@@ -267,10 +265,9 @@ def gravity_range():
     :return: a tuple with the lower and upper limits
     """
     # TODO: Your code here
-    g1 = float(input("Whats the lower limit of gravity"))
-    g2 = float(input("Whats the higher limit of gravity"))
+    g1 = float(input("Whats the lower limit of gravity: "))
+    g2 = float(input("Whats the higher limit of gravity: "))
     gravity = (g1, g2)
-    print(gravity)
     return gravity
 
 
@@ -292,7 +289,6 @@ def orbits():
         user_input = input("Enter an entity name or type end to exit: ")
         if user_input != 'end':
             user_orbit.append(user_input)
-            print(user_orbit)
     return user_orbit
 
 
@@ -318,9 +314,9 @@ def visualise():
           " [3] Summary of orbits\n"
           " [4] Animate gravities"
           )
-    menu_input = int(input())
-    if menu_input == 1 or menu_input == 2 or menu_input == 3 or menu_input == 4:
-        return menu_input
+    menu_input3 = int(input())
+    if menu_input3 == 1 or menu_input3 == 2 or menu_input3 == 3 or menu_input3 == 4:
+        return menu_input3
     else:
         print("Error Invalid Input!")
         return None
