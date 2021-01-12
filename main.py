@@ -103,6 +103,14 @@ def visualise():
         print(tui.error)
 
 
+def saving():
+    save = tui.save()
+    if save == 1:
+        print("Incomplete")
+    else:
+        tui.error("Saving")
+
+
 def run():
 
     # Task 19: Call the function welcome of the module tui.
@@ -116,7 +124,6 @@ def run():
         # Assign the selected option to a suitable local variable
         # TODO: Your code here
         menu = tui.menu()
-
 
         # Task 21: Check if the user selected the option for loading data.  If so, then do the following:
         # - Use the appropriate function in the module tui to display a message to indicate that the data loading
@@ -273,11 +280,13 @@ def run():
         # TODO: Your code here
         elif menu == 4:
             tui.started("Saving Data")
+            saving()
             tui.completed("Saving Data")
         # Task 29: Check if the user selected the option for exiting.  If so, then do the following:
         # break out of the loop
         # TODO: Your code here
         elif menu == 5:
+            print("Shutting down...")
             break
 
         # Task 30: If the user selected an invalid option then use the appropriate function of the module tui to

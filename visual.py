@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import main
-import random as rnd
-import matplotlib.animation as animation
+
 
 def entities_pie(categories):
     """
